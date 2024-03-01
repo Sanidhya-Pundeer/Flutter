@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: HomePage(),
     routes: {'/signup': (context) => SignupPage()},
   ));
@@ -18,6 +20,7 @@ class HomePage extends StatelessWidget {
       home: Scaffold(
           appBar: AppBar(
             title: const Text('First Application'),
+            backgroundColor: Colors.blue,
           ),
           body: SingleChildScrollView(
             child: Container(
@@ -41,14 +44,14 @@ class HomePage extends StatelessWidget {
                       onPressed: () => {},
                       child: Text('login', style: TextStyle(fontSize: 25))),
                   Text('Forgot Password', style: TextStyle(fontSize: 15)),
-                  TextButton(
+                  ElevatedButton(
                     onPressed: () => Navigator.pushNamed(context, '/signup'),
                     child: Text('New user sign up',
                         style: TextStyle(
                           fontSize: 20,
                           color: Color.fromRGBO(0, 0, 0, 0.737),
                         )),
-                    style: TextButton.styleFrom(
+                    style: ElevatedButton.styleFrom(
                         backgroundColor: Color.fromARGB(238, 184, 194, 205)),
                   )
                 ],
@@ -63,20 +66,53 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-      appBar: AppBar(
-        title: Text('Signup Page'),
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: [
-              Text('SignUp Page', style: TextStyle(fontSize: 20)),
-              SizedBox(height: 20),
-            ],
+          appBar: AppBar(
+            title: Text('Signup Page'),
           ),
-        ),
-      ),
-    ));
+          body: SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.all(25),
+              child: Column(
+                children: [
+                  SizedBox(height: 20),
+                  Center(
+                      child: Text(
+                    'SignUp Page',
+                    style: TextStyle(fontSize: 20),
+                  )),
+                  SizedBox(height: 20),
+                  TextField(
+                      decoration: InputDecoration(
+                          labelText: 'Enter your first name: ')),
+                  SizedBox(height: 20),
+                  TextField(
+                      decoration:
+                          InputDecoration(labelText: 'Enter your last name: ')),
+                  SizedBox(height: 20),
+                  TextField(
+                      decoration:
+                          InputDecoration(labelText: 'Enter your email: ')),
+                  SizedBox(height: 20),
+                  TextField(
+                      obscureText: true,
+                      decoration:
+                          InputDecoration(labelText: 'Enter your password: ')),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                      onPressed: () => {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(0, 150, 243, 0.612),
+                          foregroundColor: Colors.white),
+                      child: Text(
+                        'Sign up',
+                        style: TextStyle(fontSize: 20),
+                      ))
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }
