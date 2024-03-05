@@ -103,12 +103,15 @@ class SignupPage extends StatelessWidget {
                   ElevatedButton(
                       onPressed: () => {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromRGBO(0, 150, 243, 0.612),
+                          fixedSize: Size(400, 30),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(0)),
+                          backgroundColor: Color.fromRGBO(7, 106, 244, 0.612),
                           foregroundColor: Colors.white),
                       child: Text(
-                        'Sign up',
+                        'Register',
                         style: TextStyle(fontSize: 20),
-                      ))
+                      )),
                 ],
               ),
             ),
