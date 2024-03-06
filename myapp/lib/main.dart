@@ -79,7 +79,7 @@ class SignupPage extends StatelessWidget {
                   SizedBox(height: 20),
                   Center(
                       child: Text(
-                    'SignUp Page',
+                    'Register With Us to get started...',
                     style: TextStyle(fontSize: 20),
                   )),
                   SizedBox(height: 20),
@@ -100,6 +100,18 @@ class SignupPage extends StatelessWidget {
                       decoration:
                           InputDecoration(labelText: 'Enter your password: ')),
                   SizedBox(height: 20),
+                  ElevatedButton(
+                      onPressed: () => {},
+                      child: Container(
+                        child: Row(children: [
+                          Image.network(
+                            'https://cdn.iconscout.com/icon/free/png-256/free-google-1772223-1507807.png',
+                            height: 25,
+                          ),
+                          Text('   Google')
+                        ]),
+                        width: 90,
+                      )),
                   ElevatedButton(
                       onPressed: () => {},
                       style: ElevatedButton.styleFrom(
