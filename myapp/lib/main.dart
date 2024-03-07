@@ -76,12 +76,10 @@ class SignupPage extends StatelessWidget {
               padding: EdgeInsets.all(25),
               child: Column(
                 children: [
-                  SizedBox(height: 20),
-                  Center(
-                      child: Text(
+                  Text(
                     'Register With Us to get started...',
                     style: TextStyle(fontSize: 20),
-                  )),
+                  ),
                   SizedBox(height: 20),
                   TextField(
                       decoration: InputDecoration(
@@ -102,18 +100,6 @@ class SignupPage extends StatelessWidget {
                   SizedBox(height: 20),
                   ElevatedButton(
                       onPressed: () => {},
-                      child: Container(
-                        child: Row(children: [
-                          Image.network(
-                            'https://cdn.iconscout.com/icon/free/png-256/free-google-1772223-1507807.png',
-                            height: 25,
-                          ),
-                          Text('   Google')
-                        ]),
-                        width: 90,
-                      )),
-                  ElevatedButton(
-                      onPressed: () => {},
                       style: ElevatedButton.styleFrom(
                           fixedSize: Size(400, 30),
                           shape: RoundedRectangleBorder(
@@ -124,6 +110,47 @@ class SignupPage extends StatelessWidget {
                         'Register',
                         style: TextStyle(fontSize: 20),
                       )),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text('OR', style: TextStyle(fontSize: 20)),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                      child: Row(
+                    children: [
+                      ElevatedButton(
+                          onPressed: () => {},
+                          child: Container(
+                            width: 110,
+                            child: Row(children: [
+                              Image.network(
+                                'https://cdn.iconscout.com/icon/free/png-256/free-google-1772223-1507807.png',
+                                height: 25,
+                                width: 25,
+                              ),
+                              Text('   Google')
+                            ]),
+                          )),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      ElevatedButton(
+                          onPressed: () => {},
+                          child: Container(
+                            width: 110,
+                            child: Row(children: [
+                              Image.network(
+                                'https://w7.pngwing.com/pngs/664/673/png-transparent-apple-logo-iphone-computer-apple-logo-company-heart-logo-thumbnail.png',
+                                height: 30,
+                                width: 30,
+                              ),
+                              Text('   Facebook')
+                            ]),
+                          ))
+                    ],
+                  )),
                 ],
               ),
             ),
