@@ -351,12 +351,44 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            toolbarHeight: 5,
+            backgroundColor: Color.fromARGB(255, 244, 236, 216),
+          ),
           body: SingleChildScrollView(
             child: Container(
+              decoration:
+                  BoxDecoration(color: Color.fromARGB(255, 244, 236, 216)),
               padding: EdgeInsets.all(25),
               child: Column(
-                children: [Text('home page')],
+                children: [
+                  Container(
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'assets/images/4.png',
+                          height: 35,
+                          width: 35,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'Hello,',
+                          style:
+                              TextStyle(color: Color.fromARGB(218, 90, 89, 89)),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          'Alicia',
+                          style: TextStyle(fontFamily: 'BP'),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
           ),
