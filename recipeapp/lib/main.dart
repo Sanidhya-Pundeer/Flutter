@@ -42,13 +42,18 @@ class MyApp extends StatelessWidget {
                       ),
                       Center(
                         child: Container(
-                          width: 200,
-                          child: Text(
-                              'Millions of recipes. Join us today and start cooking.',
-                              style: TextStyle(
-                                fontSize: 15.0,
-                              )),
-                        ),
+                            child: Column(
+                          children: [
+                            Text('Millions of recipes,',
+                                style: TextStyle(
+                                  fontSize: 15.0,
+                                )),
+                            Text('Come join us and start cooking.',
+                                style: TextStyle(
+                                  fontSize: 15.0,
+                                ))
+                          ],
+                        )),
                       ),
                     ],
                   ),
@@ -399,11 +404,206 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     height: 15,
                   ),
-                  TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5.0))),
-                  )
+                  Container(
+                      child: Row(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(0),
+                        width: 300,
+                        height: 40,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              hintText: '',
+                              icon: Icon(Icons.search),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15))),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Image.asset(
+                        'assets/images/6.png',
+                        height: 25,
+                        width: 25,
+                      )
+                    ],
+                  )),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Container(
+                        child: Row(children: [
+                      ElevatedButton(
+                          onPressed: () =>
+                              Navigator.pushNamed(context, '/homePage'),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color.fromRGBO(26, 126, 65, 0.612),
+                              foregroundColor: Colors.white),
+                          child: Container(
+                            width: 70,
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Breakfast',
+                                  style: TextStyle(fontSize: 15),
+                                )
+                              ],
+                            ),
+                          )),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      ElevatedButton(
+                          onPressed: () =>
+                              Navigator.pushNamed(context, '/homePage'),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color.fromRGBO(26, 126, 65, 0.612),
+                              foregroundColor: Colors.white),
+                          child: Container(
+                            width: 60,
+                            child: Row(
+                              children: [
+                                Text(
+                                  '  Lunch',
+                                  style: TextStyle(fontSize: 15),
+                                )
+                              ],
+                            ),
+                          )),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      ElevatedButton(
+                          onPressed: () =>
+                              Navigator.pushNamed(context, '/homePage'),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color.fromRGBO(9, 127, 186, 0.631),
+                              foregroundColor: Colors.white),
+                          child: Container(
+                            width: 60,
+                            child: Row(
+                              children: [
+                                Text(
+                                  '  Brunch',
+                                  style: TextStyle(fontSize: 15),
+                                )
+                              ],
+                            ),
+                          )),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      ElevatedButton(
+                          onPressed: () =>
+                              Navigator.pushNamed(context, '/homePage'),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color.fromRGBO(26, 126, 65, 0.612),
+                              foregroundColor: Colors.white),
+                          child: Container(
+                            width: 60,
+                            child: Row(
+                              children: [
+                                Text(
+                                  '  Dinner',
+                                  style: TextStyle(fontSize: 15),
+                                )
+                              ],
+                            ),
+                          )),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      ElevatedButton(
+                          onPressed: () =>
+                              Navigator.pushNamed(context, '/homePage'),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color.fromRGBO(26, 126, 65, 0.612),
+                              foregroundColor: Colors.white),
+                          child: Container(
+                            width: 60,
+                            child: Row(
+                              children: [
+                                Text(
+                                  '  Snacks',
+                                  style: TextStyle(fontSize: 15),
+                                )
+                              ],
+                            ),
+                          )),
+                    ])),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Container(
+                        width: 170,
+                        height: 190,
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(146, 255, 255, 255),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              'assets/images/7.png',
+                              height: 90,
+                              width: 90,
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Text(
+                              'Vegetable Bowl',
+                              style: TextStyle(fontSize: 15),
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Container(
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Image.asset(
+                                    'assets/images/8.png',
+                                    height: 15,
+                                    width: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    '15 mins',
+                                    style: TextStyle(fontSize: 13),
+                                  ),
+                                  SizedBox(
+                                    width: 30,
+                                  ),
+                                  Image.asset('assets/images/9.png',
+                                      height: 15, width: 15),
+                                  Image.asset('assets/images/9.png',
+                                      height: 15, width: 15),
+                                  Image.asset('assets/images/9.png',
+                                      height: 15, width: 15),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
                 ],
               ),
             ),
