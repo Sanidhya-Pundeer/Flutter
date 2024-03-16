@@ -387,6 +387,22 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    'Lets Choose the best dish for you',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0))),
                   )
                 ],
               ),
