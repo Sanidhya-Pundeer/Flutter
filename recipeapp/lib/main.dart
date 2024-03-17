@@ -1068,18 +1068,50 @@ class FavouritePage extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.deepPurple),
       home: Scaffold(
           appBar: AppBar(
-            title: const Text('First Application'),
-            backgroundColor: Colors.blue,
+            backgroundColor: Color.fromARGB(146, 255, 255, 255),
           ),
           body: SingleChildScrollView(
             child: Container(
               padding: EdgeInsets.all(25),
               child: Column(
                 children: [
-                  Text('ZOM-E-ZOM', style: TextStyle(fontSize: 29)),
+                  Text('Favourites',
+                      style: TextStyle(fontSize: 29, fontFamily: 'BP')),
                   SizedBox(
                     height: 30,
                   ),
+                  bottomNavigationBar: BottomAppBar(
+                      color: Color.fromARGB(107, 231, 227, 224),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            icon: Icon(
+                              Icons.home,
+                            ),
+                            onPressed: () =>
+                                Navigator.pushNamed(context, '/homePage'),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.favorite),
+                            onPressed: () =>
+                                Navigator.pushNamed(context, '/favouritePage'),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.search,
+                            ),
+                            onPressed: () =>
+                                Navigator.pushNamed(context, '/searchPage'),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.person_rounded),
+                            onPressed: () =>
+                                Navigator.pushNamed(context, '/profilePage'),
+                          ),
+                        ],
+                      ))
                 ],
               ),
             ),
