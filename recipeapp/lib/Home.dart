@@ -59,7 +59,7 @@ class UserHome extends StatelessWidget {
                     children: [
                       Container(
                         padding: EdgeInsets.all(0),
-                        width: 340,
+                        width: 310,
                         height: 40,
                         child: TextField(
                           decoration: InputDecoration(
