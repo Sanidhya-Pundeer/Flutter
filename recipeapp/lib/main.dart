@@ -9,7 +9,7 @@ import 'ProfilePage.dart';
 void main() {
   runApp(MaterialApp(debugShowCheckedModeBanner: false, home: MyApp(), routes: {
     '/login': (context) => LoginPage(),
-    '/signup': (context) => SignupPage(),
+    '/signup': (context) => SignUpPage(),
     '/homePage': (context) => HomePage(),
     '/favouritePage': (context) => FavouritePage(),
     '/searchPage': (context) => SearchPage(),
