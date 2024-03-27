@@ -57,7 +57,7 @@ class _SignUp extends State<SignUpPage> {
                                         labelText: 'First Name: '),
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
-                                        return 'Name cannot be empty';
+                                        return 'Enter some text';
                                       }
                                       return null;
                                     },
@@ -70,9 +70,9 @@ class _SignUp extends State<SignUpPage> {
                                   child: TextFormField(
                                       decoration: InputDecoration(
                                           labelText: 'Last Name: '),
-                                      validator: (value1) {
-                                        if (value1 == null || value1.isEmpty) {
-                                          return 'Last Name cannot be empty';
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Enter some text';
                                         }
                                         return null;
                                       }),
