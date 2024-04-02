@@ -79,18 +79,18 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignupPage()));
-                    },
-                    child: Text(
-                      'New Here?  Sign Up Now!',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                  ),
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //         context,
+                  //         MaterialPageRoute(
+                  //             builder: (context) => SignupPage()));
+                  //   },
+                  //   child: Text(
+                  //     'New Here?  Sign Up Now!',
+                  //     style: TextStyle(fontSize: 15),
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 15,
                   )

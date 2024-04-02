@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipeapp/model/Users.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -8,6 +9,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUp extends State<SignUpPage> {
+  User u = User();
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -59,7 +61,7 @@ class _SignUp extends State<SignUpPage> {
                                       if (value == null || value.isEmpty) {
                                         return 'Enter some text';
                                       }
-                                      return null;
+                                      u.f_name = value;
                                     },
                                   ),
                                 ),
@@ -74,7 +76,7 @@ class _SignUp extends State<SignUpPage> {
                                         if (value == null || value.isEmpty) {
                                           return 'Enter some text';
                                         }
-                                        return null;
+                                        u.l_name = value;
                                       }),
                                 )
                               ],
@@ -104,15 +106,7 @@ class _SignUp extends State<SignUpPage> {
                                           Navigator.pushNamed(
                                               context, '/homePage');
                                         } else {
-                                          Visibility(
-                                            visible: !_formKey.currentState!
-                                                .validate(),
-                                            child: Text(
-                                              'Please fix the errors in your form.',
-                                              style:
-                                                  TextStyle(color: Colors.red),
-                                            ),
-                                          );
+                                          print('error in form');
                                         }
                                       },
                                       style: ElevatedButton.styleFrom(
