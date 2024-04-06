@@ -1,35 +1,48 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '/model/wine.dart';
+import '../model/dish.dart';
 
 class HttpHelper {
-  String baseUrl =
-      'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com';
-  String endpoint = '/food/wine/dishes';
+  String baseUrl = 'https://recipe-by-api-ninjas.p.rapidapi.com';
+  String endpoint = '/v1/recipe';
   String apiKey = '1b7c912494msh9245ac01a6d97eep101661jsnffe8c228ed41';
 
-  Future<Wine> fetchWineDishes(String wineName) async {
-    final url = Uri.parse('$baseUrl$endpoint?wine=$wineName');
-    final headers = {
-      'X-RapidAPI-Key': apiKey,
-      'X-RapidAPI-Host': baseUrl,
-    };
-
+  Future<Dish> fetchDishes(String dishName) async {
     try {
-      final response = await http.get(url, headers: headers);
-      if (response.statusCode == 200) {
-        // final result = json.decode(response.body) as Map<String, dynamic>;
-        // return result;
-        Map<String, dynamic> data = json.decode(response.body);
-        Wine wineData = Wine.fromJson(data);
-        return wineData;
+      final headers = {
+        'X-RapidAPI-Key': apiKey,
+        'X-RapidAPI-Host': baseUrl,
+      };
+
+      final params = {'query': dishName}; // Using 'query' as recommended
+
+      final url = Uri.parse(
+          'https://recipe-by-api-ninjas.p.rapidapi.com$endpoint?query=$dishName');
+      http.Response res = await http.get(url, headers: headers);
+
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        Dish dish =
+            Dish.fromJson(data ?? {}); // Use an empty map if data is null
+        return dish;
       } else {
-        // Handle non-200 status code gracefully
         throw Exception(
-            'API request failed with status code: ${response.statusCode}');
+            'API request failed with status code: ${res.statusCode}');
       }
     } catch (error) {
-      rethrow;
+      print(error);
+      rethrow; // Rethrow the error for further handling (optional)
     }
+  }
+}
+
+void main() async {
+  try {
+    HttpHelper h = HttpHelper();
+    Dish dish =
+        await h.fetchDishes('pasta'); // Use await for asynchronous result
+    print(dish.dishName); // Access dish information after successful fetch
+  } catch (error) {
+    print('Error fetching dishes: $error'); // Handle errors in main
   }
 }
