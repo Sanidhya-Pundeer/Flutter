@@ -3,46 +3,25 @@ import 'package:http/http.dart' as http;
 import '../model/dish.dart';
 
 class HttpHelper {
-  String baseUrl = 'https://recipe-by-api-ninjas.p.rapidapi.com';
-  String endpoint = '/v1/recipe';
-  String apiKey = '1b7c912494msh9245ac01a6d97eep101661jsnffe8c228ed41';
+  String baseUrl = 'http://192.168.1.25:3000'; // Change to your API base URL
+  String endpoint = '/api/recipes/search/'; // Change to your API endpoint
 
-  Future<Dish> fetchDishes(String dishName) async {
+  Future<List<Dish>> fetchDishes(String dishName) async {
     try {
-      final headers = {
-        'X-RapidAPI-Key': apiKey,
-        'X-RapidAPI-Host': baseUrl,
-      };
-
-      final params = {'query': dishName}; // Using 'query' as recommended
-
-      final url = Uri.parse(
-          'https://recipe-by-api-ninjas.p.rapidapi.com$endpoint?query=$dishName');
-      http.Response res = await http.get(url, headers: headers);
-
+      final url = Uri.parse('$baseUrl$endpoint$dishName');
+      http.Response res = await http.get(url);
       if (res.statusCode == 200) {
-        final data = jsonDecode(res.body);
-        Dish dish =
-            Dish.fromJson(data ?? {}); // Use an empty map if data is null
-        return dish;
+        List<dynamic> data = jsonDecode(res.body);
+        List<Dish> dishes = data.map((item) => Dish.fromJson(item)).toList();
+        print(dishes);
+        return dishes;
       } else {
         throw Exception(
             'API request failed with status code: ${res.statusCode}');
       }
     } catch (error) {
       print(error);
-      rethrow; // Rethrow the error for further handling (optional)
+      rethrow;
     }
-  }
-}
-
-void main() async {
-  try {
-    HttpHelper h = HttpHelper();
-    Dish dish =
-        await h.fetchDishes('pasta'); // Use await for asynchronous result
-    print(dish.dishName); // Access dish information after successful fetch
-  } catch (error) {
-    print('Error fetching dishes: $error'); // Handle errors in main
   }
 }
