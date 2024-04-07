@@ -10,8 +10,7 @@ class Dish {
   List<dynamic> ingredients = [];
   List<dynamic> equipment = [];
 
-  Dish(this.dishName, this.timeToPrepare, this.courseName, this.equipment,
-      this.ingredients, this.referenceId);
+  Dish();
 
   Dish.fromJson(List<dynamic> dishes) {
     this.dishName = dishes[0]['item']['dish_name'] ?? '';
@@ -23,16 +22,16 @@ class Dish {
   }
 }
 
-void main() async {
-  HttpHelper h = HttpHelper();
-  h.fetchDishes('spaghetti');
-  // dishes.forEach((dish) {
-  //   // Print all properties of each dish
-  //   print('Dish Name: ${dish.dishName}');
-  //   print('Time to Prepare: ${dish.timeToPrepare}');
-  //   print('Course Name: ${dish.courseName}');
-  //   print('Ingredients: ${dish.ingredients}');
-  //   print('Equipment: ${dish.equipment}');
-  //   print('Reference ID: ${dish.referenceId}\n');
-  // });
-}
+// void main() async {
+//   HttpHelper h = HttpHelper();
+//   h.fetchDishes('spaghetti');
+//   dishes.forEach((dish) {
+//     // Print all properties of each dish
+//     print('Dish Name: ${dish.dishName}');
+//     print('Time to Prepare: ${dish.timeToPrepare}');
+//     print('Course Name: ${dish.courseName}');
+//     print('Ingredients: ${dish.ingredients}');
+//     print('Equipment: ${dish.equipment}');
+//     print('Reference ID: ${dish.referenceId}\n');
+//   });
+// }

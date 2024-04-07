@@ -13,7 +13,7 @@ class HttpHelper {
       if (res.statusCode == 200) {
         List<dynamic> data = jsonDecode(res.body);
         Dish dishes = Dish.fromJson(data);
-        print(dishes.ingredients);
+        // print(dishes.ingredients);
         return dishes;
       } else {
         throw Exception(

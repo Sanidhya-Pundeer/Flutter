@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:recipeapp/model/Dish.dart';
+import 'package:recipeapp/model/SearchDish.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
+  const SearchPage({super.key});
+  @override
+  State<SearchPage> createState() => _SearchPage();
+}
+
+SearchDish s = SearchDish();
+Dish d = Dish();
+
+class _SearchPage extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
