@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:recipeapp/api/recipe_api.dart';
 import 'package:recipeapp/model/Dish.dart';
 import 'package:recipeapp/model/SearchDish.dart';
+import 'ShowDishes.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -12,11 +14,13 @@ SearchDish s = SearchDish();
 Dish d = Dish();
 
 class _SearchPage extends State<SearchPage> {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.deepPurple),
+        theme: ThemeData(primarySwatch: Colors.green),
         home: Scaffold(
             appBar: AppBar(
               toolbarHeight: 5,
@@ -24,6 +28,7 @@ class _SearchPage extends State<SearchPage> {
             ),
             body: SingleChildScrollView(
                 child: Container(
+                    width: double.infinity,
                     decoration: BoxDecoration(
                         color: Color.fromARGB(255, 244, 236, 216)),
                     padding: EdgeInsets.all(25),
@@ -62,26 +67,45 @@ class _SearchPage extends State<SearchPage> {
                       SizedBox(
                         height: 30,
                       ),
-                      Container(
-                          child: Row(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(0),
-                            width: 310,
-                            height: 40,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                  hintText: '',
-                                  prefixIcon: Icon(Icons.search),
-                                  suffixIcon: Icon(Icons.filter_alt),
-                                  filled: true,
-                                  fillColor: Color.fromARGB(199, 255, 255, 255),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15))),
-                            ),
+                      Form(
+                        key: _formKey,
+                        child: Center(
+                          child: TextFormField(
+                            onChanged: (value) {
+                              setState(() {
+                                s.dish_name = value;
+                              });
+                            },
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.search),
+                                suffixIcon: Icon(Icons.filter_alt),
+                                filled: true,
+                                fillColor: Color.fromARGB(199, 255, 255, 255),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(15))),
                           ),
-                        ],
-                      )),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      ElevatedButton(
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              HttpHelper h = HttpHelper();
+                              d = (await h.fetchDishes(s.dish_name)) as Dish;
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) =>
+                                          ShowDishes(d1: d))));
+                            } else {
+                              print('error');
+                            }
+                          },
+                          child: Text('search')),
                       SizedBox(
                         height: 20,
                       ),

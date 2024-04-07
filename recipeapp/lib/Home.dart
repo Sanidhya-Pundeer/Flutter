@@ -12,6 +12,7 @@ class UserHome extends StatelessWidget {
           ),
           body: SingleChildScrollView(
             child: Container(
+              width: double.infinity,
               decoration:
                   BoxDecoration(color: Color.fromARGB(255, 244, 236, 216)),
               padding: EdgeInsets.all(25),
