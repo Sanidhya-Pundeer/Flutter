@@ -6,14 +6,14 @@ class HttpHelper {
   String baseUrl = 'http://192.168.1.25:3000'; // Change to your API base URL
   String endpoint = '/api/recipes/search/'; // Change to your API endpoint
 
-  Future<List<Dish>> fetchDishes(String dishName) async {
+  Future<Dish> fetchDishes(String dishName) async {
     try {
       final url = Uri.parse('$baseUrl$endpoint$dishName');
       http.Response res = await http.get(url);
       if (res.statusCode == 200) {
         List<dynamic> data = jsonDecode(res.body);
-        List<Dish> dishes = data.map((item) => Dish.fromJson(item)).toList();
-        print(dishes);
+        Dish dishes = Dish.fromJson(data);
+        print(dishes.ingredients);
         return dishes;
       } else {
         throw Exception(
