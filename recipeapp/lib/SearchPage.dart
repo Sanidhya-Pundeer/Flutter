@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipeapp/api/recipe_api.dart';
-import 'package:recipeapp/model/Dish.dart';
+import 'package:recipeapp/model/Ndish.dart';
 import 'package:recipeapp/model/SearchDish.dart';
 import 'ShowDishes.dart';
 
@@ -11,7 +11,7 @@ class SearchPage extends StatefulWidget {
 }
 
 SearchDish s = SearchDish();
-Dish d = Dish();
+Ndish d = Ndish();
 
 class _SearchPage extends State<SearchPage> {
   final _formKey = GlobalKey<FormState>();
@@ -95,7 +95,7 @@ class _SearchPage extends State<SearchPage> {
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
                               HttpHelper h = HttpHelper();
-                              d = (await h.fetchDishes(s.dish_name)) as Dish;
+                              d = await h.fetchDishes(s.dish_name);
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:recipeapp/api/recipe_api.dart';
 
-class Dish {
+class Ndish {
   String dishName = '';
   String timeToPrepare = '';
   String courseName = '';
@@ -10,9 +10,9 @@ class Dish {
   List<dynamic> ingredients = [];
   List<dynamic> equipment = [];
 
-  Dish();
+  Ndish();
 
-  Dish.fromJson(List<dynamic> dishes) {
+  Ndish.fromJson(List<dynamic> dishes) {
     this.dishName = dishes[0]['item']['dish_name'] ?? '';
     this.timeToPrepare = dishes[0]['item']['time_to_prepare'] ?? '';
     this.courseName = dishes[0]['item']['course_name'] ?? '';
@@ -25,13 +25,5 @@ class Dish {
 // void main() async {
 //   HttpHelper h = HttpHelper();
 //   h.fetchDishes('spaghetti');
-//   dishes.forEach((dish) {
-//     // Print all properties of each dish
-//     print('Dish Name: ${dish.dishName}');
-//     print('Time to Prepare: ${dish.timeToPrepare}');
-//     print('Course Name: ${dish.courseName}');
-//     print('Ingredients: ${dish.ingredients}');
-//     print('Equipment: ${dish.equipment}');
-//     print('Reference ID: ${dish.referenceId}\n');
-//   });
+//   
 // }

@@ -1,6 +1,6 @@
 const recipes = [
     {
-      "dish_name": "spaghetti",
+      "dish_name": "Spaghetti",
       "time_to_prepare": "30 minutes",
       "course_name": "Main Course",
       "reference_id": "RC001",

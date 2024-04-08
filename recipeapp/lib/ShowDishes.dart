@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recipeapp/model/Dish.dart';
+import 'package:recipeapp/model/Ndish.dart';
 
 class ShowDishes extends StatelessWidget {
-  Dish d1 = Dish();
+  Ndish d1 = Ndish();
 
   ShowDishes({super.key, required this.d1});
 
@@ -21,12 +21,30 @@ class ShowDishes extends StatelessWidget {
             padding: EdgeInsets.all(25),
             child: Column(
               children: [
-                Text('Alicia Smith',
+                Text('${d1.dishName}',
                     style: TextStyle(fontSize: 29, fontFamily: 'BP')),
                 SizedBox(
                   height: 30,
                 ),
-                Text('${d1.dishName}')
+                Container(
+                  decoration: BoxDecoration(border: Border.all()),
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      Container(
+                          child: Row(children: [
+                        Text(
+                          'Time to prepare : 30 ',
+                          style: TextStyle(fontSize: 15, fontFamily: 'BP'),
+                        ),
+                        Text('${d1.timeToPrepare}')
+                      ])),
+                      SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
