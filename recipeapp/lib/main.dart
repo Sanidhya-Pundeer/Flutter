@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recipeapp/provider/userProvider.dart';
 import 'LoginPage.dart';
 import 'SignupPage.dart';
 import 'HomePage.dart';
@@ -7,14 +9,18 @@ import 'SearchPage.dart';
 import 'ProfilePage.dart';
 
 void main() {
-  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: MyApp(), routes: {
-    '/login': (context) => LoginPage(),
-    '/signup': (context) => SignUpPage(),
-    '/homePage': (context) => HomePage(),
-    '/favouritePage': (context) => FavouritePage(),
-    '/searchPage': (context) => SearchPage(),
-    '/profilePage': (context) => ProfilePage(),
-  }));
+  runApp(ChangeNotifierProvider<userProvider>(
+    create: (context) => userProvider(),
+    child:
+        MaterialApp(debugShowCheckedModeBanner: false, home: MyApp(), routes: {
+      '/login': (context) => LoginPage(),
+      '/signup': (context) => SignUp(),
+      '/homePage': (context) => HomePage(),
+      '/favouritePage': (context) => FavouritePage(),
+      '/searchPage': (context) => SearchPage(),
+      '/profilePage': (context) => ProfilePage(),
+    }),
+  ));
 }
 
 class MyApp extends StatelessWidget {
