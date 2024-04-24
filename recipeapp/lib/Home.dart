@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recipeapp/provider/userProvider.dart';
 
 class UserHome extends StatelessWidget {
   @override
@@ -18,32 +20,35 @@ class UserHome extends StatelessWidget {
               padding: EdgeInsets.all(25),
               child: Column(
                 children: [
-                  Container(
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/4.png',
-                          height: 35,
-                          width: 35,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'Hello,',
-                          style:
-                              TextStyle(color: Color.fromARGB(218, 90, 89, 89)),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          'Alicia',
-                          style: TextStyle(fontFamily: 'BP'),
-                        ),
-                      ],
-                    ),
-                  ),
+                  Consumer<userProvider>(builder: (context, provider, child) {
+                    final user = provider.user;
+                    return Container(
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            'assets/images/4.png',
+                            height: 35,
+                            width: 35,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            user.userName,
+                            style: TextStyle(
+                                color: Color.fromARGB(218, 90, 89, 89)),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            'Alicia',
+                            style: TextStyle(fontFamily: 'BP'),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
                   SizedBox(
                     height: 15,
                   ),

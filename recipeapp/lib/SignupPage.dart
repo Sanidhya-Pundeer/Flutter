@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipeapp/HomePage.dart';
 import 'package:recipeapp/model/Users.dart';
 import 'package:recipeapp/provider/userProvider.dart';
 
@@ -49,7 +50,7 @@ class SignUp extends StatelessWidget {
                   SizedBox(height: 30),
                   Form(
                       key: _formKey,
-                      child: Consumer<User>(
+                      child: Consumer<userProvider>(
                         builder: (context, provider, child) {
                           return Container(
                               child: Column(
@@ -67,6 +68,7 @@ class SignUp extends StatelessWidget {
                                           if (value == null || value.isEmpty) {
                                             return 'Enter some text';
                                           }
+                                          provider.user.userName = value;
                                           // u.userName = value;
                                         },
                                       ),
@@ -111,8 +113,12 @@ class SignUp extends StatelessWidget {
                                           onPressed: () {
                                             if (_formKey.currentState!
                                                 .validate()) {
-                                              Navigator.pushNamed(
-                                                  context, '/homePage');
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        HomePage(),
+                                                  ));
                                             } else {
                                               print('error in form');
                                             }
