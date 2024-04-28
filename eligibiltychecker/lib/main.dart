@@ -10,9 +10,15 @@ class MyApp extends StatelessWidget {
     return (MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('E-Commerce Application'),
+          title: Text('Eligibility Checker'),
         ),
-        body: SingleChildScrollView(),
+        body: SingleChildScrollView(
+          child: Container(
+            child: Row(
+              children: [Text('Enter your age')],
+            ),
+          ),
+        ),
       ),
     ));
   }
