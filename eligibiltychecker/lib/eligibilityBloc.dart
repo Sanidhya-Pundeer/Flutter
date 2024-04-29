@@ -7,13 +7,16 @@ class eligibilityBloc {
   Stream<bool> get mainStream => mainController.stream;
 
   StreamController<int> eventController = StreamController();
-  StreamSink<int> get evetSink => eventController.sink;
+  StreamSink<int> get eventSink => eventController.sink;
   Stream<int> get eventStream => eventController.stream;
 
   eligibilityBloc() {
-    eventStream.listen((event) {
-      if (event > 18) {
+    eventStream.listen((e1) {
+      if (e1 > 18) {
         cond = true;
+        mainSink.add(cond);
+      } else {
+        cond = false;
         mainSink.add(cond);
       }
     });
