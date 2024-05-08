@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:recipeapp/model/Ndish.dart';
 
 class HttpHelper {
-  String baseUrl = 'http://192.168.1.25:3000'; // Change to your API base URL
+  String baseUrl = 'http://192.168.56.246:3000'; // Change to your API base URL
   String endpoint = '/api/recipes/search/'; // Change to your API endpoint
 
   Future<Ndish> fetchDishes(String dishName) async {
