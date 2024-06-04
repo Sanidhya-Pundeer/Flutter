@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testingapp/BookingPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
           child: Row(
             children: [
               ElevatedButton(
-                  onPressed: () => {Navigation}, child: Text("Location"))
+                  onPressed: () => Navigator.pushNamed(context, '/googlemap'),
+                  child: Text("Location"))
             ],
           ),
         ),
